@@ -1,3 +1,8 @@
+DISCLAIMER
+==========
+This project is in its infancy, I have a massive todo list for it including unit tests, a monogame rendering engine and ObjectLayer support. If you can be patient, I will deliver!
+
+
 How to use
 --------------
 
