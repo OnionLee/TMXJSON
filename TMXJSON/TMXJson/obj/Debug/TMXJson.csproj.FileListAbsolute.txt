@@ -1,0 +1,8 @@
+C:\Users\Will\Desktop\Darkmyste\TMXJson\bin\Debug\libs\Newtonsoft.Json.dll
+C:\Users\Will\Desktop\Darkmyste\TMXJson\bin\Debug\TMXJson.dll.config
+C:\Users\Will\Desktop\Darkmyste\TMXJson\bin\Debug\TMXJson.dll
+C:\Users\Will\Desktop\Darkmyste\TMXJson\bin\Debug\TMXJson.pdb
+C:\Users\Will\Desktop\Darkmyste\TMXJson\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Will\Desktop\Darkmyste\TMXJson\obj\Debug\TMXJson.dll
+C:\Users\Will\Desktop\Darkmyste\TMXJson\obj\Debug\TMXJson.pdb
+C:\Users\Will\Desktop\Darkmyste\TMXJson\obj\Debug\TMXJson.csprojResolveAssemblyReference.cache
