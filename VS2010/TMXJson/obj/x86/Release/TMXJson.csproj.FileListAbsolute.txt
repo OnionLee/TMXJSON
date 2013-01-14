@@ -1,0 +1,6 @@
+C:\Users\Will\Desktop\TMXJSON\TMXJson\bin\Release\libs\Newtonsoft.Json.dll
+C:\Users\Will\Desktop\TMXJSON\TMXJson\bin\Release\TMXJson.dll
+C:\Users\Will\Desktop\TMXJSON\TMXJson\bin\Release\TMXJson.pdb
+C:\Users\Will\Desktop\TMXJSON\TMXJson\bin\Release\Newtonsoft.Json.dll
+C:\Users\Will\Desktop\TMXJSON\TMXJson\obj\x86\Release\TMXJson.dll
+C:\Users\Will\Desktop\TMXJSON\TMXJson\obj\x86\Release\TMXJson.pdb
