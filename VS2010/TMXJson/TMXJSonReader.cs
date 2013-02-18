@@ -1,30 +1,35 @@
-﻿using Newtonsoft.Json.Linq;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿#region Header
+/*
+ * TMXJsonReader.cs
+ * Author: Will McCullough
+ * Last Modified: 2/18/2013
+ * 
+ * This class provides functionality to load in .json strings that are generated
+ * by the Tiled Map Editor
+ */
+
+#endregion
+
+#region Using Statements
+using Newtonsoft.Json.Linq;
+using System.Collections.Generic; 
+#endregion
 
 namespace TMXJson
 {
     public class TMXJSonReader
     {
-
-        public JObject LoadJson(string filename)
-        {
-            string fileText = File.ReadAllText(filename);
-
-            JObject result = JObject.Parse(fileText);
-
-            return result;
-        }
-
+        #region Methods
+        /// <summary>
+        /// Loads a file containing a .json string generated from Tiled map editor
+        /// </summary>
+        /// <param name="filename">The file that will be loaded</param>
+        /// <returns>TMXMap</returns>
         public TMXMap Load(string filename)
         {
-            TMXMap result = null; 
+            TMXMap result = null;
 
-            JObject mapJSON = LoadJson(filename);
+            JObject mapJSON = new JObject().FromFile(filename);
 
             if (mapJSON != null)
             {
@@ -50,7 +55,7 @@ namespace TMXJson
 
                 foreach (var kvp in propertiesJson)
                 {
-                    mapProperties.Add(kvp.Key.ToString(), kvp.Value.ToString());
+                    mapProperties.Add(kvp.Key, kvp.Value.ToString());
                 }
 
                 result = new TMXMap(mapWidth, mapHeight, tileWidth, tileHeight, mapProperties, orientationType, version);
@@ -74,7 +79,7 @@ namespace TMXJson
 
                     foreach (var prop in tilesetProperties)
                     {
-                        tilesetPropertiesCollection.Add(prop.Key.ToString(), prop.Value.ToString());
+                        tilesetPropertiesCollection.Add(prop.Key, prop.Value.ToString());
                     }
 
                     JObject tilesetTileProperties = (JObject)tilesets["tileproperties"];
@@ -82,10 +87,10 @@ namespace TMXJson
 
                     foreach (var prop in tilesetTileProperties)
                     {
-                        tilesetTilePropertiesCollection.Add(prop.Key.ToString(), prop.Value.ToString());
+                        tilesetTilePropertiesCollection.Add(prop.Key, prop.Value.ToString());
                     }
 
-                    TMXTileset tileset = new TMXTileset(name, tilesetTileWidth, tilesetTileHeight, tilesetImageWidth, tilesetImageHeight, 
+                    TMXTileset tileset = new TMXTileset(name, tilesetTileWidth, tilesetTileHeight, tilesetImageWidth, tilesetImageHeight,
                         imagePath, margin, firstgid, spacing, tilesetPropertiesCollection, tilesetTilePropertiesCollection);
 
                     result.AddTileset(tileset);
@@ -119,7 +124,7 @@ namespace TMXJson
                     {
                         for (int x = 0; x < layerWidth; x++)
                         {
-                            tileData[x, y] = (int)dataJson[i];
+                            if (dataJson != null) tileData[x, y] = (int)dataJson[i];
                             i++;
                         }
                     }
@@ -129,11 +134,12 @@ namespace TMXJson
                     result.AddLayer(tmxLayer);
                 }
 
-               
+
 
             }
 
             return result;
-        }
+        } 
+        #endregion
     }
 }

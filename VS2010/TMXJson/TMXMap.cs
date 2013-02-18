@@ -1,4 +1,15 @@
-﻿using System.Collections.Generic;
+﻿#region Header
+/*
+ * TMXMap.cs
+ * Author: Will McCullough
+ * Last Modified: 2/18/2013
+ * 
+ * This class represents a map generated using Tiled Map Editor
+ */
+
+#endregion
+
+using System.Collections.Generic;
 
 namespace TMXJson
 {

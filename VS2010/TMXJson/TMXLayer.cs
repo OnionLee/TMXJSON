@@ -1,4 +1,14 @@
-﻿
+﻿#region Header
+/*
+ * TMXLayer.cs
+ * Author: Will McCullough
+ * Last Modified: 2/18/2013
+ * 
+ * This class represents a map layer in a TMX file
+ */
+
+#endregion
+
 namespace TMXJson
 {
     public class TMXLayer
