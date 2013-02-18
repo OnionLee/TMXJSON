@@ -1,8 +1,22 @@
-﻿
+﻿#region Header
+/*
+ * TMXTile.cs
+ * Author: Will McCullough
+ * Last Modified: 2/18/2013
+ * 
+ * This class provides functionality to load in .json strings that are generated
+ * by the Tiled Map Editor
+ */
+
+#endregion
+
 namespace TMXJson
 {
     public class TMXTile
     {
+        /// <summary>
+        /// The ID of the tile, a numerical value that is stored in the layers of a Tiled map
+        /// </summary>
         public int ID { get; private set; }
 
         public int X { get; private set; }

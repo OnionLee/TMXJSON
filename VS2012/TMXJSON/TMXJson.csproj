@@ -50,6 +50,7 @@
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Extensions\JObjectExtensions.cs" />
     <Compile Include="TMXJSonReader.cs" />
     <Compile Include="TMXLayer.cs" />
     <Compile Include="TMXLayerType.cs" />

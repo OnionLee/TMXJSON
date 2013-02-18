@@ -1,8 +1,16 @@
-﻿using System;
+﻿#region Header
+/*
+ * TMXTileset.cs
+ * Author: Will McCullough
+ * Last Modified: 2/18/2013
+ * 
+ * This class represents a tileset within a .tmx file
+ */
+
+#endregion
+
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TMXJson
 {
