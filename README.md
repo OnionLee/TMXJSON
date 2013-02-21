@@ -24,4 +24,4 @@ Once you have added either a reference in your project or have added the source 
 
 TMXJson.TMXMap map = new TMXJson.TMXJSonReader().Load("MyLevel.json");
 
-Within the map object, you can see a collection of Tilesets, Layers, and general map properties. As of this writing, the library only support "TileLayer" types. I hope to add "ObjectLayer" types very soon.
+Within the map object, you can see a collection of Tilesets, Layers, and general map properties. The library supports both Tile and Object layer types. Object support is basic, but should be fine for simple use cases.
