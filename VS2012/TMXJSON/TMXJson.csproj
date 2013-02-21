@@ -55,6 +55,7 @@
     <Compile Include="TMXLayer.cs" />
     <Compile Include="TMXLayerType.cs" />
     <Compile Include="TMXMap.cs" />
+    <Compile Include="TMXObject.cs" />
     <Compile Include="TMXOrientationType.cs" />
     <Compile Include="TMXTile.cs" />
     <Compile Include="TMXTileset.cs" />

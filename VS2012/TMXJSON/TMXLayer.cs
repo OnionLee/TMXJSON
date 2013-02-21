@@ -9,6 +9,8 @@
 
 #endregion
 
+using System.Collections.Generic;
+
 namespace TMXJson
 {
     public class TMXLayer
@@ -48,6 +50,8 @@ namespace TMXJson
         /// </summary>
         public bool Visible { get; private set; }
 
+        public Dictionary<string, Dictionary<string, string>> Objects { get; private set; }
+
         /// <summary>
         /// Constructs a new layer with the specified values
         /// </summary>
@@ -73,6 +77,8 @@ namespace TMXJson
             this.Type = type;
 
             this.Visible = visible;
+
+            Objects = new Dictionary<string, Dictionary<string, string>>();
         }
 
         /// <summary>
@@ -116,6 +122,27 @@ namespace TMXJson
         public int GetTileIndex(int x, int y)
         {
             return Data[x, y];
+        }
+
+        public string GetObjectProperty(string name, string key)
+        {
+            if (Objects.ContainsKey(name))
+            {
+                Dictionary<string, string> props = Objects[name];
+                   
+                if (props.ContainsKey(key))
+                {
+                    return props[key];
+                }
+            }
+
+
+            return "";
+        }
+
+        public void AddObject(string name, Dictionary<string,string> properties)
+        {
+            Objects.Add(name, properties);
         }
     }
 }

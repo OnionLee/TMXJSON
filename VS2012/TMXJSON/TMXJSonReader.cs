@@ -85,9 +85,15 @@ namespace TMXJson
                     JObject tilesetTileProperties = (JObject)tilesets["tileproperties"];
                     Dictionary<string, string> tilesetTilePropertiesCollection = new Dictionary<string, string>();
 
-                    foreach (var prop in tilesetTileProperties)
+                    if (tilesetTileProperties != null)
                     {
-                        tilesetTilePropertiesCollection.Add(prop.Key, prop.Value.ToString());
+                        foreach (var prop in tilesetTileProperties)
+                        {
+                            int numericKey = int.Parse(prop.Key);
+
+                            numericKey += 1;
+                            tilesetTilePropertiesCollection.Add(numericKey.ToString(), prop.Value.ToString());
+                        }
                     }
 
                     TMXTileset tileset = new TMXTileset(name, tilesetTileWidth, tilesetTileHeight, tilesetImageWidth, tilesetImageHeight,
@@ -111,7 +117,7 @@ namespace TMXJson
                     {
                         tmxLayerType = TMXLayerType.Tile;
                     }
-                    else if (layerType == "objectlayer")
+                    else if (layerType == "objectlayer" || layerType == "objectgroup")
                     {
                         tmxLayerType = TMXLayerType.Object;
                     }
@@ -129,7 +135,24 @@ namespace TMXJson
                         }
                     }
 
+
                     TMXLayer tmxLayer = new TMXLayer(name, layerWidth, layerHeight, tileData, opacity, tmxLayerType, layerVisible);
+
+                    //If this is an object layer, build the objects
+                    if (tmxLayerType == TMXLayerType.Object)
+                    {
+                        foreach (JObject objectLayerObject in layer["objects"])
+                        {
+                            Dictionary<string, string> objectProps = new Dictionary<string, string>();
+
+                            foreach (var objectKVP in objectLayerObject)
+                            {
+                                objectProps.Add(objectKVP.Key, objectKVP.Value.ToString());
+                            }
+
+                            tmxLayer.AddObject(objectProps["name"].ToString(), objectProps);
+                        }
+                    }
 
                     result.AddLayer(tmxLayer);
                 }

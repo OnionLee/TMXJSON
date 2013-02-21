@@ -9,6 +9,7 @@
 
 #endregion
 
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -82,7 +83,14 @@ namespace TMXJson
 
         public TMXTile GetTile(int gid)
         {
-            return Tiles.First(t => t.ID == gid);
+            var result = Tiles[gid];
+
+            if (gid > 0 && result == null)
+            {
+                throw new Exception("This should never happen!");
+            }
+
+            return result;
         }
     }
 }

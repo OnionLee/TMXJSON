@@ -6,3 +6,11 @@ C:\Users\Will\Desktop\Darkmyste\TMXJson\bin\Debug\Newtonsoft.Json.dll
 C:\Users\Will\Desktop\Darkmyste\TMXJson\obj\Debug\TMXJson.dll
 C:\Users\Will\Desktop\Darkmyste\TMXJson\obj\Debug\TMXJson.pdb
 C:\Users\Will\Desktop\Darkmyste\TMXJson\obj\Debug\TMXJson.csprojResolveAssemblyReference.cache
+C:\Users\Will\Documents\GitHub\TMXJSON\VS2012\TMXJSON\bin\Debug\libs\Newtonsoft.Json.dll
+C:\Users\Will\Documents\GitHub\TMXJSON\VS2012\TMXJSON\bin\Debug\TMXJson.dll.config
+C:\Users\Will\Documents\GitHub\TMXJSON\VS2012\TMXJSON\bin\Debug\TMXJson.dll
+C:\Users\Will\Documents\GitHub\TMXJSON\VS2012\TMXJSON\bin\Debug\TMXJson.pdb
+C:\Users\Will\Documents\GitHub\TMXJSON\VS2012\TMXJSON\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Will\Documents\GitHub\TMXJSON\VS2012\TMXJSON\obj\Debug\TMXJson.dll
+C:\Users\Will\Documents\GitHub\TMXJSON\VS2012\TMXJSON\obj\Debug\TMXJson.pdb
+C:\Users\Will\Documents\GitHub\TMXJSON\VS2012\TMXJSON\obj\Debug\TMXJson.csprojResolveAssemblyReference.cache
