@@ -10,6 +10,9 @@
 #endregion
 
 using System.Collections.Generic;
+using System;
+using System.Linq;
+using System.Linq.Expressions;
 
 namespace TMXJson
 {
@@ -50,7 +53,7 @@ namespace TMXJson
         /// </summary>
         public bool Visible { get; private set; }
 
-        public Dictionary<string, Dictionary<string, string>> Objects { get; private set; }
+        public List<TMXObject> Objects { get; private set; }
 
         /// <summary>
         /// Constructs a new layer with the specified values
@@ -78,7 +81,7 @@ namespace TMXJson
 
             this.Visible = visible;
 
-            Objects = new Dictionary<string, Dictionary<string, string>>();
+            Objects = new List<TMXObject>();
         }
 
         /// <summary>
@@ -124,15 +127,19 @@ namespace TMXJson
             return Data[x, y];
         }
 
-        public string GetObjectProperty(string name, string key)
+        public object GetObjectProperty(string name, string key)
         {
-            if (Objects.ContainsKey(name))
+            if (Objects.Any(o => o.Name == name))
             {
-                Dictionary<string, string> props = Objects[name];
-                   
-                if (props.ContainsKey(key))
+                var firstOrDefault = Objects.FirstOrDefault(o => o.Name == name);
+                if (firstOrDefault != null)
                 {
-                    return props[key];
+                    Dictionary<string, object> props = firstOrDefault.Properties;
+                   
+                    if (props.ContainsKey(key))
+                    {
+                        return props[key];
+                    }
                 }
             }
 
@@ -140,9 +147,9 @@ namespace TMXJson
             return "";
         }
 
-        public void AddObject(string name, Dictionary<string,string> properties)
+        public void AddObject(string name, Dictionary<string, object> properties)
         {
-            Objects.Add(name, properties);
+            Objects.Add(new TMXObject(name, properties));
         }
     }
 }

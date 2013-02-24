@@ -143,11 +143,29 @@ namespace TMXJson
                     {
                         foreach (JObject objectLayerObject in layer["objects"])
                         {
-                            Dictionary<string, string> objectProps = new Dictionary<string, string>();
+                            Dictionary<string, object> objectProps = new Dictionary<string, object>();
 
                             foreach (var objectKVP in objectLayerObject)
                             {
-                                objectProps.Add(objectKVP.Key, objectKVP.Value.ToString());
+                                if (objectKVP.Key == "properties")
+                                {
+                                    JObject objectPropertyValues = JObject.Parse(objectKVP.Value.ToString());
+
+                                    Dictionary<string, string> objectPropertyColection =
+                                        new Dictionary<string, string>();
+
+                                    foreach (var token in objectPropertyValues)
+                                    {
+                                        objectPropertyColection.Add(token.Key, token.Value.ToString());
+                                    }
+
+                                    objectProps.Add(objectKVP.Key, objectPropertyColection);
+                                }
+                                else
+                                {
+                                    objectProps.Add(objectKVP.Key, objectKVP.Value.ToString());
+                                }
+                                
                             }
 
                             tmxLayer.AddObject(objectProps["name"].ToString(), objectProps);

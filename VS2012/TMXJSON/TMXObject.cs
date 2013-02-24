@@ -10,9 +10,9 @@ namespace TMXJson
     {
         public string Name { get; private set; }
 
-        public Dictionary<string, string> Properties { get; private set; }
- 
-        public TMXObject(string name, Dictionary<string, string> properties)
+        public Dictionary<string, object> Properties { get; private set; }
+
+        public TMXObject(string name, Dictionary<string, object> properties)
         {
             Name = name;
 
